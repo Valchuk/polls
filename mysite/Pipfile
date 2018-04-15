@@ -8,7 +8,7 @@ name = "pypi"
 [packages]
 
 pytest = "*"
-django = "2.0.2"
+django >= "2.0.2"
 dj-database-url = "*"
 whitenoise = "*"
 gunicorn = "*"
@@ -17,7 +17,7 @@ twine = "*"
 [dev-packages]
 
 pytest = "*"
-django = "2.0.2"
+django >= "2.0.2"
 dj-database-url = "*"
 whitenoise = "*"
 gunicorn = "*"
