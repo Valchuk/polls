@@ -1,4 +1,5 @@
 import os
+name = os.environ.get('DATABASE_NAME')
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -56,17 +57,28 @@ WSGI_APPLICATION = 'mysite.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/1.11/ref/settings/#databases
-
-DATABASES = DATABASES = {
+if name == None:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.postgresql',
+            'NAME': 'd2duk7b12hbc0u',
+            'USER': 'faznwgtxmzxmqw',
+            'PASSWORD': '260d669398faf9609277710cf035d6d94588f1088564e2d2f835a015e9e06060',
+            'HOST': 'ec2-54-163-240-54.compute-1.amazonaws.com',
+            'PORT': '5432',
+        }, 
+    }
+else:
+    DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'd2duk7b12hbc0u',
-        'USER': 'faznwgtxmzxmqw',
-        'PASSWORD': '260d669398faf9609277710cf035d6d94588f1088564e2d2f835a015e9e06060',
-        'HOST': 'ec2-54-163-240-54.compute-1.amazonaws.com',
-        'PORT': '5432',
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }
+
+
+    
+
 
 # Password validation
 # https://docs.djangoproject.com/en/1.11/ref/settings/#auth-password-validators
@@ -105,3 +117,4 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
 
 STATIC_URL = '/static/'
+
