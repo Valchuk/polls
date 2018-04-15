@@ -1,5 +1,5 @@
 import os
-name = os.environ.get('DATABASE_NAME')
+
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -57,6 +57,7 @@ WSGI_APPLICATION = 'mysite.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/1.11/ref/settings/#databases
+name = os.environ.get('DATABASE_NAME')
 if name == None:
     DATABASES = {
         'default': {
@@ -115,8 +116,12 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
-
+STATIC_ROOT = os.path.join(BASE_DIR, 'polls/static/')
 STATIC_URL = '/static/'
-STATIC_ROOT = os.path.join(BASE_DIR, 'polls/static')
+
+#STATICFILES_DIRS = (
+#   os.path.join(BASE_DIR, 'polls/static/'),
+#)
+
 
 
