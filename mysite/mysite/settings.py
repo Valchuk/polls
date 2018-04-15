@@ -8,7 +8,7 @@ SECRET_KEY = 'n*&fk7byk-m^zd*_jn($1-bj$5*k^jt$q9a2g%s8jzdi9aba-g'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['127.0.0.1']
+ALLOWED_HOSTS = ['127.0.0.1', 'valdenpolls.herokuapp.com']
 
 
 # Application definition
